@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experimentation 1</title>
+</head>
+<body>
+
+    <h1> look in console!</h1>
+    <a href="../index.html">portal page</a>
+
+    <script>
+        //Loop through the code form 0 to 10
+        //If i is even, print *, else if old, print #
+        //
+        var myString = "";
+        for (var i = 0; i < 10; i++) {
+
+            if (i % 2 == 0) {
+                myString += "*";
+            }
+            else if (i % 2 == 1) {
+                myString += "#";
+            }
+            console.log(`${myString}`);
+        }
+
+        console.log("\n");
+
+        //Take my name, and turn it into upper case 
+        var name0 = "yadi";
+        var name1 = name0.toUpperCase();
+        console.log(`${name1}`);
+
+        //Take my name and turn it to lower case 
+        var name2 = name0.toLowerCase();
+        console.log(`${name2}`);
+
+    //FIZZ BUZZ 
+        // sequence
+        var fizz = "fizz"
+        var buzz = "buzz"
+
+        //loop
+        for (var i = 1; i <= 100; i++) {
+
+            //selection
+            if (i % 3 === 0 && i % 5 === 0) {
+                console.log(fizz + buzz);
+            }
+            else if (i % 3 === 0) {
+                console.log(fizz);
+            }
+            else if (i % 5 === 0) {
+                console.log(buzz);
+            }
+            else {
+                console.log(i);
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Experiment 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            transition: background-color 0.5s;
+        }
+        h1 {
+            font-size: 2.5em;
+        }
+        h2 {
+            margin-top: 20px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<script>
+
+
+// ARRAYS
+const foods = ["Pizza", "Tacos", "Ice Cream", "Sushi", "Burgers"];
+const smallGroupGames = ["Uno", "Charades", "Chess", "Card Games"];
+const largeGroupGames = ["Tag", "Capture the Flag", "Hide and Seek", "Kickball"];
+
+// FUNCTION: returns a random item from an array
+function getRandomItem(arr) {
+    let index = Math.floor(Math.random() * arr.length);
+    return arr[index];
+}
+
+// FUNCTION: greeting (returns string)
+function greeting(name) {
+    return `hai, ${name}! `;
+}
+
+// FUNCTION: hospitality (uses greeting function + returns message)
+function hospitality(name, foodArray) {
+    let greetMsg = greeting(name);
+    let randomFood = getRandomItem(foodArray);
+    return {
+        greet: greetMsg,
+        food: `u should eat some ${randomFood} today! `
+    };
+}
+
+// FUNCTION: display games based on group size
+function suggestGames(groupSize) {
+    let games;
+    if (groupSize <= 5) {
+        games = smallGroupGames;
+    } else {
+        games = largeGroupGames;
+    }
+
+    let list = document.createElement("ul");
+
+    for (let i = 0; i < games.length; i++) {
+        let item = document.createElement("li");
+        item.textContent = games[i];
+        list.appendChild(item);
+    }
+
+    return list;
+}
+
+// USER INPUT
+let userName = prompt("What is your name?");
+let favoriteColor = prompt("Enter your favorite color (like red, blue, green):");
+let groupSize = parseInt(prompt("How many people are in your group?"));
+
+// CHANGE BACKGROUND COLOR
+document.body.style.backgroundColor = favoriteColor;
+
+// GET DATA FROM FUNCTION
+let result = hospitality(userName, foods);
+
+// DISPLAY CONTENT USING DOM
+let h1 = document.createElement("h1");
+h1.textContent = result.greet;
+
+let h2 = document.createElement("h2");
+h2.textContent = result.food;
+
+let h3 = document.createElement("h2");
+h3.textContent = "Recommended Games:";
+
+// APPEND TO BODY
+document.body.appendChild(h1);
+document.body.appendChild(h2);
+document.body.appendChild(h3);
+
+// ADD GAME LIST
+let gameList = suggestGames(groupSize);
+document.body.appendChild(gameList);
+
+</script>
+
+</body>
+</html>
