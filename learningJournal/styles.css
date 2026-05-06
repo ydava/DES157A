@@ -1,51 +1,139 @@
+/* =========================
+ STYLES
+========================= */
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #111;
-    color: #eee;
     margin: 0;
-    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f0e6; /* beige */
+    color: #3b2f2f;
+    line-height: 1.7;
 }
 
+/* Layout container */
 .container {
-    width: 70%;
-    margin: auto;
-    padding: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 20px;
 }
 
+/* =========================
+   HEADER
+========================= */
 header {
     text-align: center;
-    margin-bottom: 40px;
+    background-color: #8b1e1e; /* deep red */
+    color: #f5f0e6;
+    padding: 40px 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
 }
 
-h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
 }
 
 .tagline {
-    color: #aaa;
+    margin-top: 8px;
+    font-size: 1rem;
+    opacity: 0.9;
 }
 
+/* =========================
+   BLOG INDEX (POST CARDS)
+========================= */
+.blog {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Works for index cards and journal sections */
+.post,
 section {
-    margin-bottom: 30px;
+    background-color: #fffaf3;
+    border-left: 6px solid #b22222;
     padding: 20px;
-    background-color: #1c1c1c;
-    border-radius: 10px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-h2 {
-    color: #c084fc; 
+/* Hover effect ONLY useful on index cards */
+.post:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
 }
 
-p {
-    line-height: 1.6;
+/* Post titles */
+.post h2,
+section h2 {
+    margin-top: 0;
+    color: #8b1e1e;
 }
 
+/* date text (date/category) */
+.date {
+    font-size: 0.9rem;
+    color: #7a5c5c;
+}
+
+/* =========================
+   LINKS
+========================= */
 a {
-    color: #c084fc;
+    color: #b22222;
     text-decoration: none;
+    font-weight: bold;
 }
 
 a:hover {
+    color: #5c0f0f;
     text-decoration: underline;
+}
+
+/* Read more button style */
+.read-more {
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+/* =========================
+   NAV
+========================= */
+.nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background-color: #8b1e1e; /* deep red */
+    padding: 12px;
+    border-radius: 10px;
+    margin: 15px auto 25px auto;
+    max-width: 900px;
+}
+
+.nav a {
+    color: #f5f0e6; /* beige */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.nav a:hover {
+    background-color: #b22222;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .container {
+        padding: 15px;
+    }
 }
