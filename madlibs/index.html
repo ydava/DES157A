@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spooky Madlibs</title>
+
+
+    <link rel="stylesheet" href="styles.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=New+Rocker&display=swap" rel="stylesheet">
+
+
+
+    <script src="script.js" defer></script> 
+
+</head>
+<body>
+       
+    <header>
+        <h1>MadLibs</h1>
+        <h2>Fill in the blanks below to create your own spooky story!</h2>
+    </header>
+
+    <main id="madlib-questions">
+        <form>
+            <div>
+            <label for="adjective1">An adjetive:</label><br>
+            <input type="text" id="adjective1" name="adjective1"><br>
+            </div>
+
+            <div>
+            <label for="verb1">A verb:</label><br>
+            <input type="text" id="verb1" name="verb1"><br>
+            </div>
+ 
+            <div>
+            <label for="noun">A noun:</label><br>
+            <input type="text" id="noun" name="noun"><br>
+            </div>
+
+            <div>
+            <label for="adjective2">Another adjetive :</label><br>
+            <input type="text" id="adjective2" name="adjective2"><br>
+            </div>
+
+            <div>
+            <label for="verb2">A different verb:</label><br>
+            <input type="text" id="verb2" name="verb2"><br>
+            </div>
+
+            
+            <div>
+            <input type="submit" value="Create Spooky Story">
+            </div>
+
+            <div id="error"></div>
+
+
+        </form>
+
+<!-- OVERLAY -->
+    <section id="madlib-overlay">
+
+        <article>
+
+            <div id="madlib">
+                <h2>Spooky Madlibs</h2>
+            </div>
+
+            <p>
+                <a href="#" id="close">Close</a>
+            </p>
+
+        </article>
+
+    </section>
+
+</main>
+
+</body>
+</html>
