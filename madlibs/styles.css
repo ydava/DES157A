@@ -1,162 +1,185 @@
-body {
-    background-color: #0f0d0c;
-    color: #e7ded7;
-}
 
-/* atmospheric background glow with red accents */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: 
-        radial-gradient(circle at 30% 20%, rgba(255, 60, 60, 0.06), transparent 45%),
-        radial-gradient(circle at 70% 80%, rgba(120, 20, 20, 0.10), transparent 50%),
-        radial-gradient(circle at 50% 50%, rgba(194, 163, 143, 0.04), transparent 60%);
-    pointer-events: none;
-}
-
-/* TITLE */
-h1 {
-    font-family: "Cinzel", serif;
-    font-weight: 600;
-    color: #d8b4a0; /* bone + red warmth */
-    font-size: 64px;
-    text-align: center;
-    margin-bottom: 0;
-    letter-spacing: 2px;
-
-    text-shadow: 
-        0 2px 10px rgba(0,0,0,0.6),
-        0 0 12px rgba(139, 30, 30, 0.25);
-}
-
-/* SUBTITLE */
-h2 {
-    font-family: "Cinzel", serif;
-    color: #c9a8a0;
-    font-size: 18px;
-    text-align: center;
-    margin-top: 10px;
-    font-style: italic;
-}
-
-/* MAIN CONTAINER */
-main {
-    background-color: rgba(20, 16, 14, 0.95);
-    width: 600px;
-    margin: auto;
-    padding: 40px;
-    border: 1px solid #4a1a1a; /* red-tinted border */
-    box-shadow: 0 0 40px rgba(139, 30, 30, 0.15);
-}
-
-/* FORM */
-form {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-}
-
-form label {
-    font-family: "Cinzel", serif;
-    color: #e7ded7;
-    font-size: 15px;
-}
-
-/* INPUTS */
-form input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
+* {
     box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+    padding: 24px;
+    background-color: #0f0d0c;
+    color: #e7ded7;
+    font-family: "Outfit", sans-serif;
+    position: relative;
+}
+
+
+/* =========================
+   HEADERS
+========================= */
+
+h1 {
+    font-family: "Cinzel", serif;
+    font-size: 42px;
+    text-align: center;
+    margin: 20px 0 5px;
+    color: #d8b4a0;
+}
+
+h2 {
+    font-family: "Cinzel", serif;
+    font-size: 14px;
+    text-align: center;
+    margin: 0 0 30px;
+    color: #c9a8a0;
+    font-style: italic;
+}
+
+/* =========================
+   FORM LAYOUT 
+========================= */
+
+
+main {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+
+form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+
+form label {
+    font-family: "Cinzel", serif;
+    font-size: 14px;
+    color: #e7ded7;
+}
+
+/* inputs */
 input[type="text"] {
-    background-color: #171211;
+    width: 100%;
+    padding: 10px;
+    background: #171211;
     border: 1px solid #3a2c26;
     color: #e7ded7;
 }
 
-/* red focus glow */
 input[type="text"]:focus {
-    border: 1px solid #b32626;
+    border-color: #b32626;
     outline: none;
-    box-shadow: 0 0 10px rgba(179, 38, 38, 0.5);
+    box-shadow: 0 0 8px rgba(179, 38, 38, 0.4);
 }
 
-/* SUBMIT */
+/* submit button */
 input[type="submit"] {
-    background-color: #3a1414;
-    color: #f3e7dd;
-    border-radius: 8px;
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 6px;
     border: 1px solid #b32626;
-    font-size: 16px;
+    background: #3a1414;
+    color: #f3e7dd;
     font-family: "Cinzel", serif;
-    padding: 10px;
-    transition: 0.2s ease;
+    cursor: pointer;
 }
 
 input[type="submit"]:hover {
-    background-color: #b32626;
+    background: #b32626;
     color: #120d0c;
 }
 
-/* ERROR */
-#error {
-    color: #ff6b6b;
-    font-family: "Outfit";
-    font-size: 18px;
-    padding: 10px;
-}
+/* =========================
+   STORY OVERLAY 
+========================= */
 
-/* WORD HIGHLIGHT */
-span {
-    background-color: rgba(179, 38, 38, 0.15);
-    padding: 1px 6px;
-}
-
-/* STORY */
 #madlib-overlay {
     display: none;
     position: fixed;
     inset: 0;
-
-    width: 100vw;
-    height: 100vh;
-
-    padding: 60px;
-
-    background-color: #0f0d0c;
-
+    background: #0f0d0c;
+    padding: 30px 20px;
     overflow-y: auto;
     z-index: 999;
 }
 
-/* STORY TEXT */
 #madlib-overlay p {
-    font-family: "Outfit";
-    font-size: 18px;
-    line-height: 2em;
-    max-width: 900px;
+    max-width: 750px;
     margin: 0 auto;
+    font-size: 16px;
+    line-height: 1.9;
     color: #e7ded7;
 }
 
-/* CLOSE BUTTON */
+span {
+    background: rgba(179, 38, 38, 0.18);
+    color: #f3e7dd;
+    padding: 2px 6px;
+    border-radius: 4px;
+
+    box-shadow: 0 0 10px rgba(179, 38, 38, 0.25);
+    border: 1px solid rgba(179, 38, 38, 0.25);
+
+    transition: all 0.3s ease;
+}
+
+/*animation hehe*/
+span {
+    animation: inkReveal 2s ease forwards;
+}
+
+@keyframes inkReveal {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+        filter: blur(2px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* close */
 #close {
     display: inline-block;
     margin-top: 20px;
-
-    background-color: transparent;
     color: #ff6b6b;
     border: 1px solid #b32626;
-
-    text-decoration: none;
-    padding: 8px 18px;
-    border-radius: 4px;
+    padding: 10px 14px;
+    background: transparent;
 }
 
 #close:hover {
-    background-color: #b32626;
+    background: #b32626;
     color: #120d0c;
+}
+
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media (min-width: 1000px) {
+
+    body {
+        padding: 40px;
+    }
+
+   
+    main {
+        background-color: rgba(20, 16, 14, 0.95);
+        width: 600px;
+        margin: auto;
+        padding: 40px;
+
+        border: 1px solid #4a1a1a;
+        box-shadow: 0 0 40px rgba(139, 30, 30, 0.15);
+    }
+
+    h1 {
+        font-size: 64px;
+    }
 }
