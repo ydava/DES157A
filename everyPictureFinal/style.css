@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0d0d0d;
+  color: white;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.hero {
+  width: 90%;
+  max-width: 1100px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  margin-bottom: 30px;
+  color: #cfcfcf;
+}
+
+/* IMAGE WRAPPER */
+.image-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.main-image {
+  width: 100%;
+  display: block;
+}
+
+/* MARKERS */
+.marker {
+  position: absolute;
+}
+
+/* DOT */
+.dot {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #dfd58ab8, #e9e6ea9b);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+
+  box-shadow: 0 0 15px rgba(242, 243, 207, 0.6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.marker.active .dot {
+  transform: scale(1.2);
+  box-shadow: 0 0 35px rgba(211, 210, 169, 0.95);
+}
+
+/* ZOOM CARD (BASE STATE) */
+.zoom-card {
+  position: absolute;
+  width: 340px;
+  background: rgba(15, 15, 15, 0.95);
+  border-radius: 15px;
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateY(15px) scale(0.85);
+  pointer-events: none;
+
+  transition: transform 0.35s ease, opacity 0.25s ease;
+  z-index: 10;
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* IMAGE INSIDE */
+.zoom-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.zoom-card p {
+  padding: 12px;
+  font-size: 0.95rem;
+  color: #eaeaea;
+}
+
+/* POPS FORWARD */
+.marker.active .zoom-card {
+  opacity: 1;
+  transform: translateY(0) scale(1.15);
+  pointer-events: auto;
+  z-index: 50;
+}
+
+/* POSITIONING */
+.marker1 { top: 60%; left: 73%; }
+.marker2 { top: 75%; left: 50%; }
+.marker3 { top: 75%; left: 20%; }
+
+/* FORCE LEFT FOR MARKER 1 */
+.marker1 .zoom-card {
+  right: 60px;
+  left: auto;
+}
+/* FORCE OPEN UP FOR MARKER 2 */
+.marker2 .zoom-card {
+  top: auto;
+  bottom: 60px;   
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+
+  .zoom-card {
+    width: 260px;
+  }
+
+  .zoom-card img {
+    height: 180px;
+  }
+
+  .dot {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+}
