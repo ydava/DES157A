@@ -121,8 +121,12 @@ h1 {
   right: 60px;
   left: auto;
 }
-/* FORCE OPEN UP FOR MARKER 2 */
+/* FORCE OPEN UP FOR MARKER 2 + 3 */
 .marker2 .zoom-card {
+  top: auto;
+  bottom: 60px;   
+}
+.marker3 .zoom-card {
   top: auto;
   bottom: 60px;   
 }
