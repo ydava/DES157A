@@ -1,0 +1,684 @@
+:root {
+    --bg: #0e0f12;
+    --surface: #1a1c22;
+    --surface-2: #222530;
+    --border: #3a3d4a;
+
+    --accent: #8b0f22;
+    --accent-hover: #b0182f;
+    --accent-glow: rgba(139, 15, 34, 0.35);
+
+    --text: #e9e6e6;
+    --text-muted: #8f9098;
+
+    --shadow: 0 12px 35px rgba(0,0,0,0.55);
+    --radius: 22px;
+}
+
+/* =========================
+   BASE
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding: 0 20px;
+
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+
+    background:
+        radial-gradient(circle at top, rgba(120,20,35,0.18), transparent 60%),
+        radial-gradient(circle at bottom, rgba(20,20,30,0.9), #0e0f12 70%),
+        linear-gradient(180deg, #0e0f12, #0b0c10);
+
+    display: flex;
+    flex-direction: column;
+
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle,
+            transparent 35%,
+            rgba(0,0,0,0.55) 100%
+        );
+
+    pointer-events: none;
+    z-index: -1;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 26px 0;
+}
+
+header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.6rem;
+    margin: 0;
+
+    letter-spacing: 0.04em;
+    color: #e6e1e1;
+}
+
+header h1 em {
+    color: var(--accent);
+    font-style: normal;
+
+    text-shadow:
+        0 0 12px rgba(139,15,34,0.4);
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+    flex: 1;
+    padding-bottom: 40px;
+}
+
+/* =========================
+   HOMEPAGE SETUP
+========================= */
+
+#setup {
+    width: min(90vw, 420px);
+
+    margin: auto;
+    margin-top: 8vh;
+
+    background:
+        linear-gradient(180deg, #1a1c22, #15161c);
+
+    border: 1px solid var(--border);
+    border-radius: 28px;
+
+    padding: 58px 42px;
+
+    text-align: center;
+
+    box-shadow: var(--shadow);
+
+    position: relative;
+    overflow: hidden;
+
+    animation: drift 7s ease-in-out infinite;
+}
+
+#setup::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    border-radius: inherit;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,0.03),
+        inset 0 0 40px rgba(139,15,34,0.08);
+
+    pointer-events: none;
+}
+
+#setup::after {
+    content: "";
+
+    position: absolute;
+    inset: -80px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(139,15,34,0.12),
+            transparent 70%
+        );
+
+    z-index: -1;
+}
+
+/* =========================
+   MENU TITLE
+========================= */
+
+.menu-title {
+    font-family: 'DM Serif Display', serif;
+
+    font-size: clamp(3rem, 8vw, 4.8rem);
+
+    line-height: 0.9;
+
+    margin: 0;
+
+    letter-spacing: 0.04em;
+}
+
+.menu-title em {
+    color: var(--accent);
+
+    font-style: normal;
+
+    text-shadow:
+        0 0 18px rgba(139,15,34,0.45);
+}
+
+.tagline {
+    margin-top: 18px;
+    margin-bottom: 8px;
+
+    color: var(--text-muted);
+
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+
+    font-size: 0.72rem;
+}
+
+/* =========================
+   SETUP FORM
+========================= */
+
+.setup-grid {
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+
+    width: 100%;
+
+    margin-top: 32px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    text-align: left;
+}
+
+.input-group label,
+.toggle-label,
+.threshold-group label {
+    font-size: 0.72rem;
+
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    color: var(--text-muted);
+}
+
+.toggle-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+input[type="text"] {
+    width: 100%;
+
+    padding: 14px;
+
+    background: rgba(0,0,0,0.35);
+
+    border: 1px solid rgba(255,255,255,0.06);
+
+    border-radius: 10px;
+
+    color: var(--text);
+
+    outline: none;
+
+    transition: 0.25s ease;
+}
+
+input[type="text"]:focus {
+    border-color: var(--accent);
+
+    box-shadow:
+        0 0 14px rgba(139,15,34,0.22);
+
+    transform: scale(1.02);
+}
+
+input[type="range"] {
+    width: 100%;
+    accent-color: var(--accent);
+
+    margin-top: 10px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+button {
+    padding: 14px 26px;
+
+    border-radius: 14px;
+
+    border: none;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    transition: 0.25s ease;
+}
+
+button:hover:not(:disabled) {
+    transform: translateY(-2px);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#startgame {
+    width: 100%;
+
+    padding: 18px;
+
+    margin-top: 12px;
+
+    background:
+        linear-gradient(180deg, #8b0f22, #5f0a16);
+
+    color: white;
+
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+
+    position: relative;
+    overflow: hidden;
+}
+
+#startgame::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,255,255,0.08),
+            transparent
+        );
+
+    transform: translateX(-100%);
+}
+
+#startgame:hover::before {
+    transform: translateX(100%);
+    transition: 0.8s;
+}
+
+#startgame:hover {
+    box-shadow:
+        0 0 24px rgba(139,15,34,0.35);
+}
+
+#roll {
+    background:
+        linear-gradient(180deg, #8b0f22, #5f0a16);
+
+    color: white;
+}
+
+#pass {
+    background: transparent;
+    border: 2px solid var(--accent);
+
+    color: var(--text);
+}
+
+#quit {
+    background: transparent;
+    border: 1px solid var(--border);
+
+    color: var(--text-muted);
+}
+
+/* =========================
+   GAMEBOARD
+========================= */
+
+#gameboard {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+
+    gap: 18px;
+
+    margin-top: 20px;
+}
+
+/* player positions */
+
+#player1panel {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+#player2panel {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+#game {
+    grid-column: 1 / -1;
+    grid-row: 2;
+}
+
+/* =========================
+   PLAYER PANELS
+========================= */
+
+.player-panel {
+    background:
+        linear-gradient(180deg, #1b1d24, #15161b);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    padding: 28px;
+    min-height: 180px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: var(--shadow);
+
+    transition: 0.3s ease;
+}
+
+.player-panel.active {
+    border-color: var(--accent);
+
+    box-shadow:
+        0 0 25px var(--accent-glow),
+        var(--shadow);
+
+    transform: translateY(-3px);
+}
+
+.player-panel h2 {
+    font-size: 0.85rem;
+
+    letter-spacing: 0.12em;
+
+    color: var(--text-muted);
+
+    text-transform: uppercase;
+}
+
+.total-score {
+    font-family: 'DM Serif Display', serif;
+
+    font-size: 4rem;
+
+    margin: 10px 0;
+}
+
+.score-label {
+    font-size: 0.75rem;
+
+    color: var(--text-muted);
+
+    text-transform: uppercase;
+}
+
+/* =========================
+   GAME AREA
+========================= */
+
+#game {
+    background:
+        linear-gradient(180deg, #1a1c22, #14151a);
+
+    border: 1px solid var(--border);
+    border-radius: 24px;
+
+    padding: 42px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+
+    box-shadow: var(--shadow);
+}
+
+/* =========================
+   DICE
+========================= */
+
+.dice-area {
+    display: flex;
+    gap: 24px;
+}
+
+.dice-area img {
+    width: 110px;
+    height: 110px;
+
+    filter:
+        drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+}
+
+#game-message {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+/* =========================
+   ACTIONS
+========================= */
+
+#actions {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+
+    margin-top: 24px;
+}
+
+/* =========================
+   SCORE MESSAGE
+========================= */
+
+#score h2 {
+    text-align: center;
+
+    font-family: 'DM Serif Display', serif;
+
+    color: #e6e1e1;
+
+    font-size: 1.8rem;
+
+    margin-top: 28px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+
+    padding: 18px 0;
+
+    color: var(--text-muted);
+
+    font-size: 0.8rem;
+
+    opacity: 0.5;
+}
+
+/* =========================
+   DICE ANIMATION
+========================= */
+
+@keyframes diceRoll {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(8deg) scale(1.08);
+    }
+
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+.rolling {
+    animation: diceRoll 0.35s ease;
+}
+
+/* =========================
+   FLASH
+========================= */
+
+#screen-flash {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(160, 10, 30, 0.9);
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    z-index: 9999;
+}
+
+#screen-flash.active {
+    animation: redFlash 0.35s ease-out;
+}
+
+@keyframes redFlash {
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* =========================
+   EYES
+========================= */
+
+#eye-container {
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+    overflow: hidden;
+
+    z-index: -2;
+}
+
+.eye {
+    position: absolute;
+
+    width: clamp(40px, 6vw, 90px);
+
+    opacity: 0.045;
+
+    filter:
+        drop-shadow(0 0 10px rgba(122, 28, 36, 0.5));
+}
+
+/* =========================
+   FLOATING SETUP
+========================= */
+
+@keyframes drift {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+    #setup {
+        padding: 46px 28px;
+    }
+
+    #gameboard {
+        grid-template-columns: 1fr;
+    }
+
+    #player2panel,
+    #game {
+        grid-column: 1;
+    }
+
+    .dice-area img {
+        width: 85px;
+        height: 85px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .menu-title {
+        font-size: 3.2rem;
+    }
+}

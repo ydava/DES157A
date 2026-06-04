@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game of Pig</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link href="styles.css" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- EYES -->
+    <div id="eye-container"></div>
+
+    <!-- FLASH -->
+    <div id="screen-flash"></div>
+
+    <!-- HEADER (hidden until game starts) -->
+    <header id="main-header" class="hidden">
+        <h1>Game of <em>Pig</em></h1>
+        <button id="quit" class="hidden">Quit</button>
+    </header>
+
+    <main>
+
+        <!-- SETUP -->
+        <section id="setup">
+
+            <h1 class="menu-title">
+                Game of <em>Pig</em>
+            </h1>
+
+            <p class="tagline">
+                Every roll feeds the curse
+            </p>
+
+            <div class="setup-grid">
+
+                <div class="input-group">
+                    <label for="name1">Player 1</label>
+                    <input type="text" id="name1" placeholder="Enter name">
+                </div>
+
+                <label class="toggle-label">
+                    <input type="checkbox" id="vscomputer">
+                    <span>vs Computer</span>
+                </label>
+
+                <div class="input-group">
+                    <label for="name2">Player 2</label>
+                    <input type="text" id="name2" placeholder="Enter name">
+                </div>
+
+                <div class="threshold-group">
+                    <label for="threshold">
+                        Curse Limit:
+                        <strong id="threshold-display">50</strong>
+                    </label>
+
+                    <input
+                        type="range"
+                        id="threshold"
+                        min="10"
+                        max="100"
+                        value="50"
+                    >
+                </div>
+
+                <button id="startgame">
+                    Begin Ritual
+                </button>
+
+            </div>
+        </section>
+
+        <!-- GAME -->
+        <section id="gameboard" class="hidden">
+
+            <aside id="player1panel" class="player-panel">
+                <h2 id="p1name">Player 1</h2>
+                <p class="total-score"><span>0</span></p>
+                <p class="score-label">pts</p>
+            </aside>
+
+            <section id="game">
+
+                <div class="dice-area">
+                    <img id="die1" src="images/1die.svg">
+                    <img id="die2" src="images/1die.svg">
+                </div>
+
+                <p id="game-message">
+                    Roll to begin
+                </p>
+
+            </section>
+
+            <aside id="player2panel" class="player-panel">
+                <h2 id="p2name">Player 2</h2>
+                <p class="total-score"><span>0</span></p>
+                <p class="score-label">pts</p>
+            </aside>
+
+        </section>
+
+        <!-- ACTIONS -->
+        <section id="actions" class="hidden">
+            <button id="roll">Roll</button>
+            <button id="pass">Pass</button>
+        </section>
+
+        <section id="score"></section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="main-footer" class="hidden">
+        Game of Pig
+    </footer>
+
+</body>
+</html>
